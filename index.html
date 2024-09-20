@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio - Stylish Dark Mode</title>
+ 
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    /* Background Gradient */
+    body {
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #ffffff;
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    /* Navbar */
+    .navbar {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Navbar Hover Effect */
+    .navbar-dark .navbar-nav .nav-link {
+      color: rgba(255, 255, 255, 0.75);
+      transition: color 0.3s;
+    }
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: #ffffff;
+    }
+
+    /* Section Titles */
+    h2 {
+      margin-top: 40px;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      background: -webkit-linear-gradient(45deg, #ff6f61, #d2b4fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    /* Animations */
+    .fade-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-scroll.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Cards for Projects and Skills */
+    .card {
+      background-color: #383a59; /* Lighter dark background */
+      border: none;
+      margin: 20px 0;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Card Title */
+    .card-title {
+      color: #ff6f61; /* Bright color for title */
+    }
+
+    /* Card Text */
+    .card-text {
+      color: #d2b4fc; /* Light color for text for better visibility */
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1f1c2c;
+      padding: 30px 0;
+      text-align: center;
+      color: #ffffff;
+      margin-top: 50px;
+    }
+    
+    /* Scroll to Top Button */
+    #scrollToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      border: none;
+      background-color: #ff6f61;
+      color: white;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    #scrollToTop.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #scrollToTop:hover {
+      background-color: #d2b4fc;
+    }
+
+    /* Lightbox */
+    .carousel-item img {
+      width: 100%;
+    }
+    
+    /* Social Media Links */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .social-links a {
+      color: #ffffff;
+      margin: 0 15px;
+      font-size: 24px;
+      text-decoration: none;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .social-links a:hover {
+      color: #ff6f61;
+      transform: scale(1.1);
+    }
+    .social-links .social-text {
+      color: #ffffff;
+      font-size: 16px;
+      margin-left: 10px;
+    }
+    .social-links .social-icon {
+      font-size: 28px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">My Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cv">CV</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <div class="container">
+
+    <!-- Home Section -->
+    <section id="home" class="my-5 text-center">
+      <h1 class="display-4 fade-scroll">Welcome to My Portfolio</h1>
+      <p class="lead fade-scroll">I am a web developer passionate about creating interactive and responsive websites.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="my-5">
+      <h2 class="fade-scroll">About Me</h2>
+      <p class="fade-scroll text-center">With expertise in modern web technologies, I bring ideas to life with code. I am always eager to learn and explore new challenges in the world of web development.</p>
+    </section>
+
+    <!-- Projects Section with Filter -->
+    <section id="projects" class="my-5">
+      <h2 class="fade-scroll">Projects</h2>
+      <div class="text-center mb-4">
+        <button class="btn btn-secondary" onclick="filterProjects('all')">All</button>
+        <button class="btn btn-secondary" onclick="filterProjects('web')">Web Development</button>
+        <button class="btn btn-secondary" onclick="filterProjects('app')">App Development</button>
+      </div>
+      <div class="row" id="projectsContainer">
+        <div class="col-md-4 fade-scroll project-item web">
+          <a href="https://via.placeholder.com/800x600" data-bs-toggle="lightbox" data-gallery="gallery">
+            <div class="card">
+              <img src="" class="card-img-top" alt="Project Image">
+              <div class="card-body text-center">
+                <h5 class="card-title">E-commerce Website</h5>
+                <p class="card-text">An interactive shopping platform with a custom CMS for easy product management.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4 fade-scroll project-item app">
+          <a href="https://via.placeholder.com/800x600" data-bs-toggle="lightbox" data-gallery="gallery">
+            <div class="card">
+              <img src="" class="card-img-top" alt="Project Image">
+              <div class="card-body text-center">
+                <h5 class="card-title">Real-time Chat App</h5>
+                <p class="card-text">Built using WebSocket for real-time communication and an intuitive UI.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4 fade-scroll project-item web">
+          <a href="https://via.placeholder.com/800x600" data-bs-toggle="lightbox" data-gallery="gallery">
+            <div class="card">
+              <img src="" class="card-img-top" alt="Project Image">
+              <div class="card-body text-center">
+                <h5 class="card-title">Portfolio Website</h5>
+                <p class="card-text">A personal portfolio site to showcase my skills and projects.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="my-5">
+      <h2 class="fade-scroll">Skills</h2>
+      <div class="row">
+        <div class="col-md-4 fade-scroll">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">Frontend Development</h5>
+              <p class="card-text">HTML, CSS, JavaScript, React</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 fade-scroll">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">Backend Development</h5>
+              <p class="card-text">Node.js, Express, PHP, Python</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 fade-scroll">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">Database Management</h5>
+              <p class="card-text">MySQL, MongoDB, PostgreSQL</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV Download Section -->
+    <section id="cv" class="my-5 text-center">
+      <h2 class="fade-scroll">Download My CV</h2>
+      <p class="fade-scroll">Click the button below to download my CV and get more detailed information about my background and experiences.</p>
+      <a href="path-to-your-cv.pdf" class="btn btn-primary btn-lg fade-scroll" download>Download CV</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="my-5">
+      <h2 class="fade-scroll">Contact</h2>
+      <p class="fade-scroll text-center">Feel free to reach out via email or connect with me on LinkedIn!</p>
+      <form action="path-to-your-server-endpoint" method="POST" class="fade-scroll">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </section>
+
+    <!-- Testimonials Slider Section -->
+    <section id="testimonials" class="my-5">
+      <h2 class="fade-scroll">Testimonials</h2>
+      <div id="testimonialCarousel" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="card testimonial-card">
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <p>"Great developer, delivered the project on time and exceeded expectations!"</p>
+                  <footer class="blockquote-footer">John Doe</footer>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card testimonial-card">
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <p>"Creative and efficient, highly recommended!"</p>
+                  <footer class="blockquote-footer">Jane Smith</footer>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card testimonial-card">
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <p>"An exceptional talent with a keen eye for detail."</p>
+                  <footer class="blockquote-footer">Alex Johnson</footer>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Social Media Links -->
+    <section id="social" class="my-5 text-center">
+      <h2 class="fade-scroll">Connect with Me</h2>
+      <div class="social-links fade-scroll">
+        <a href="https://www.tiktok.com/@yourusername" target="_blank" title="TikTok">
+          <i class="fab fa-tiktok social-icon"></i>
+          <span class="social-text">TikTok</span>
+        </a>
+        <a href="https://wa.me/yourphonenumber" target="_blank" title="WhatsApp">
+          <i class="fab fa-whatsapp social-icon"></i>
+          <span class="social-text">WhatsApp</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTop" title="Go to top">&#8679;</button>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Your Name. All rights reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS and Lightbox JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.15.0/dist/index.bundle.min.js"></script>
+  <!-- Font Awesome for Social Icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+  <!-- Custom JS for Animations and Scroll to Top -->
+  <script>
+    // Add show class for fade-scroll elements on scroll
+    document.addEventListener('scroll', () => {
+      document.querySelectorAll('.fade-scroll').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add('show');
+        }
+      });
+    });
+
+    // Scroll to Top Button
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        scrollToTopBtn.classList.add('show');
+      } else {
+        scrollToTopBtn.classList.remove('show');
+      }
+    });
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Project Filter Function
+    function filterProjects(category) {
+      const items = document.querySelectorAll('.project-item');
+      items.forEach(item => {
+        if (category === 'all' || item.classList.contains(category)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
